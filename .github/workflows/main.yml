@@ -42,6 +42,14 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
+      - name: Install Node.js dependencies
+        working-directory: ./src
+        run: npm install
+
+      - name: Build assets
+        working-directory: ./src
+        run: npm run build
+
       - name: Run PHPUnit Tests
         working-directory: ./src
         env:
