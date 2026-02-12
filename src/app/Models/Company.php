@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
+
+class Company extends Model
+{
+    protected $fillable = ['name', 'slug'];
+
+    protected static function booted(): void
+    {
+        static::creating(function (Company $company) {
+            if (empty($company->slug)) {
+                $company->slug = Str::slug($company->name);
+            }
+        });
+    }
+
+    public function users(): hasMany
+    {
+        return $this->hasMany(User::class);
+    }
+}
