@@ -19,6 +19,20 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .mixin({
+                methods: {
+                    __(key, replacements = {}) {
+                        const translations = this.$page.props.translations || {};
+                        let translation = translations[key] || key;
+
+                        Object.keys(replacements).forEach(r => {
+                            translation = translation.replace(`:${r}`, replacements[r]);
+                        });
+
+                        return translation;
+                    },
+                },
+            })
             .mount(el);
     },
     progress: {
