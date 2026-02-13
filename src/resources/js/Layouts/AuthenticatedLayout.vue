@@ -37,7 +37,13 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('dashboard')"
                                     :active="route().current('dashboard')"
                                 >
-                                    Dashboard
+                                    {{ __('Dashboard') }}
+                                </NavLink>
+                                <NavLink
+                                    :href="route('team.index')"
+                                    :active="route().current('team.index')"
+                                >
+                                    {{ __('Team') }}
                                 </NavLink>
                             </div>
                         </div>
@@ -144,7 +150,13 @@ const showingNavigationDropdown = ref(false);
                             :href="route('dashboard')"
                             :active="route().current('dashboard')"
                         >
-                            Dashboard
+                            {{ __('Dashboard') }}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('team.index')"
+                            :active="route().current('team.index')"
+                        >
+                            {{ __('Team') }}
                         </ResponsiveNavLink>
                     </div>
 

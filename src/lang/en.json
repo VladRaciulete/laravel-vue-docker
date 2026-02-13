@@ -1,4 +1,9 @@
 {
     "Dashboard": "Dashboard",
-    "Logged In": "Logged In"
+    "Logged In": "Logged In",
+    "Team Members": "Team Members",
+    "Team": "Team",
+    "Name": "Name",
+    "Email": "Email",
+    "Joined": "Joined"
 }
