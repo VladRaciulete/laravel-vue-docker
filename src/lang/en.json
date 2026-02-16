@@ -5,5 +5,9 @@
     "Team": "Team",
     "Name": "Name",
     "Email": "Email",
-    "Joined": "Joined"
+    "Joined": "Joined",
+    "Invite Member": "Invite Member",
+    "Invite New Team Member": "Invite New Team Member",
+    "Cancel": "Cancel",
+    "Send Invitation": "Send Invitation"
 }

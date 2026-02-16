@@ -43,4 +43,23 @@ class TeamTest extends TestCase
                 ->where('users.1.id', $userA2->id)
             );
     }
+
+    public function test_user_can_invite_team_member_to_their_company(): void
+    {
+        $company = Company::factory()->create(['name' => 'Company Name']);
+        $admin = User::factory()->create(['company_id' => $company->id]);
+
+        $response = $this->actingAs($admin)->post(route('team.store'), [
+            'name' => 'New Team Member',
+            'email' => 'member@test.com',
+        ]);
+
+        $response->assertRedirect(route('team.index'));
+
+        $this->assertDatabaseHas('users', [
+            'name' => 'New Team Member',
+            'email' => 'member@test.com',
+            'company_id' => $company->id,
+        ]);
+    }
 }
